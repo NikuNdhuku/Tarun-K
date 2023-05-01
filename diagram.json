@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "author": "Palaniappan PL",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "D12",
+      "top": 2.66,
+      "left": -128.73,
+      "attrs": { "color": "purple" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 150.22,
+      "left": -123.6,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -54.66,
+      "left": 122.73,
+      "attrs": { "volume": "0.1" }
+    },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": 33.6, "left": 188.48, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -66.1, "left": -97.53, "attrs": {} },
+    { "type": "board-ds18b20", "id": "temp1", "top": 22.5, "left": -38.07, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 0, "left": -149.67, "attrs": { "color": "red" } }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "led1:C", "r1:1", "red", [ "v97.07", "h-3.77" ] ],
+    [ "esp:GND.2", "r1:2", "red", [ "h-63.17", "v-3.93" ] ],
+    [ "bz1:1", "esp:D2", "black", [ "v105.73", "h-83.9" ] ],
+    [ "bz1:2", "esp:GND.1", "red", [ "v126.4", "h-97.9" ] ],
+    [ "pir1:VCC", "esp:3V3", "blue", [ "v34.8", "h-123.49" ] ],
+    [ "pir1:OUT", "esp:D15", "purple", [ "v16.13", "h-136.56" ] ],
+    [ "pir1:GND", "esp:GND.1", "red", [ "v22.8", "h-140.95" ] ],
+    [ "dht1:VCC", "esp:3V3", "blue", [ "v77.6", "h166.36" ] ],
+    [ "dht1:GND", "esp:GND.2", "red", [ "v63.6", "h40.9" ] ],
+    [ "dht1:SDA", "esp:D27", "green", [ "v29.6", "h62.86" ] ],
+    [ ":A", "esp:D13", "green", [ "v95.74", "h108.23" ] ],
+    [ ":C", "r1:1", "red", [ "v101.07", "h-13.1" ] ],
+    [ "D:A", "esp:D12", "blue", [ "v83.07", "h108.23" ] ],
+    [ "D:C", "r1:1", "red", [ "v111.07", "h-13.1" ] ],
+    [ "D12:A", "esp:D12", "blue", [ "v84.41", "h110.23" ] ],
+    [ "D12:C", "r1:1", "red", [ "v109.74", "h-13.1" ] ],
+    [ "temp1:GND", "esp:GND.2", "red", [ "v77.43", "h35.05" ] ],
+    [ "temp1:VCC", "esp:GND.1", "red", [ "v76.1", "h116.52" ] ],
+    [ "temp1:DQ", "esp:D25", "green", [ "v22.1", "h28.79" ] ],
+    [ "led1:A", "esp:D14", "blue", [ "v77.73", "h129.84" ] ]
+  ],
+  "dependencies": {}
+}
